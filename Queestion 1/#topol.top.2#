@@ -1,0 +1,47 @@
+;
+;	File 'topol.top' was generated
+;	By user: unknown (0)
+;	On host: AkhilLaptop
+;	At date: Mon Oct 21 12:44:16 2024
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	            :-) GROMACS - gmx pdb2gmx, 2021.4-Ubuntu-2021.4-2 (-:
+;	
+;	Executable:   /usr/bin/gmx
+;	Data prefix:  /usr
+;	Working dir:  /mnt/e/JHU/Protein Bioinformatics/Project
+;	Command line:
+;	  gmx pdb2gmx -f 1d6g.pdb -o processed_1D6G.gro -water spce -ignh
+;	Force field was read from the standard GROMACS share directory.
+;
+
+; Include forcefield parameters
+#include "amber99sb-ildn.ff/forcefield.itp"
+
+; Include chain topologies
+#include "topol_Protein_chain_A.itp"
+#include "topol_Protein_chain_B.itp"
+
+; Include water topology
+#include "amber99sb-ildn.ff/spce.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "amber99sb-ildn.ff/ions.itp"
+
+[ system ]
+; Name
+CHOLECYSTOKININ TYPE A RECEPTOR; CHOLECYSTOKININ-8
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Protein_chain_B     1
