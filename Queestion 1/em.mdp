@@ -1,4 +1,0 @@
-integrator  = steep        ; Algorithm (steepest descent minimization)
-emtol       = 1000.0       ; Stop minimization when the maximum force < 1000.0 kJ/mol/nm
-emstep      = 0.01         ; Minimization step size
-nsteps      = 50000        ; Maximum number of minimization steps
